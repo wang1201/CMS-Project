@@ -2,8 +2,11 @@ import SMERouter from 'sme-router'
 
 import home_template from  '../views/home.html';
 // const positionList_template = require('../views/position-list.html');
-import notFound_template from  '../views/404.html';
+import notFound_template from '../views/404.html';
+//招聘信息控制器
 import position_controller from '../controller/position';
+//公司信息控制器
+import company_controller from '../controller/company';
 // 头部面包屑导航
 import pageHeader_model from '../models/page-header'
 // page-header 控制器
@@ -39,12 +42,19 @@ const _init = () => {
         res.render(home_template); //插入字符串，渲染一下home，于是导入
         // _activeLink(req.route)//传入当前的路由，req.route
     })
-    //获取列表信息
+    //获取招聘信息列表信息
     router.route('/positionList', position_controller.list)
-    //添加保存
+    //招聘信息-添加保存
     router.route('/positionSave', position_controller.save)
-    //修改
+    //招聘信息-修改
     router.route('/positionUpdate', position_controller.update)
+
+     //公司信息-列表
+    router.route('/companyList', company_controller.list)
+     //公司信息-添加保存
+     router.route('/companySave', company_controller.save)
+     //公司信息-修改
+     router.route('/companyUpdate', company_controller.update)
 
     // / 地图
     router.route('/map', map_controller.map)

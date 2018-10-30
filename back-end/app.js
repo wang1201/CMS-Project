@@ -20,6 +20,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var positionRouter = require('./routes/position');
 
+var companyRouter = require('./routes/company');
 
 var app = express();//生成一个express实例 app
 
@@ -52,6 +53,7 @@ app.use('/users', usersRouter);
 // app.use('/api/positionList', positionRouter)改为
 app.use('/api/' + version + '/position', positionRouter)
 
+app.use('/api/' + version + '/company', companyRouter)
 
 
 //配置接口

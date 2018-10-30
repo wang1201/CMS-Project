@@ -36,8 +36,41 @@ const pageHeaderInfo = (url, prevUrl) => {
             title: '职位管理',
             description: '职位更新',
             list: [
-                { text: '职位列表', path: '#/positionList'+_search },
+                {
+                    text: '职位列表',path: '#/companyList' + _search
+                },
                 { text: '职位更新'}
+            ]
+        },
+        '/companyList': {
+            title: '公司管理',
+            description: '公司列表',
+            list: [{
+                text: '公司列表'
+            }]
+        },
+        '/companySave': {
+            title: '公司管理',
+            description: '添加公司',
+            list: [{
+                    text: '公司列表',
+                    path: '#/companyList' + _search
+                },
+                {
+                    text: '添加公司'
+                }
+            ]
+        },
+        '/companyUpdate': {
+            title: '公司管理',
+            description: '公司更新',
+            list: [{
+                    text: '公司列表',
+                    path: '#/companyList' + _search
+                },
+                {
+                    text: '公司更新'
+                }
             ]
         },
         '/notFound': {
