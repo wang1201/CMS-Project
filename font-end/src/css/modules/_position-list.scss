@@ -1,0 +1,23 @@
+
+.position-list {
+    .box-header>.box-tools {
+        top: 12px;
+    }
+    .position-list__tabel {
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+    .option {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
+
+.companyLogo img{
+    width: 140px;
+    height: 140px;
+}

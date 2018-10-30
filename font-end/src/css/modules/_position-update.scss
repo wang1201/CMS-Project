@@ -1,0 +1,70 @@
+#republish[type="checkbox"] {
+    display: none;
+}
+
+#republish[type="checkbox"]+label {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+[id^="republish"]+label {
+    background-color: #FFF;
+    padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    width: 70px;
+    height: 28px;
+}
+
+[id^="republish"]+label:after {
+    content: ' ';
+    position: absolute;
+    background: #f4f4f4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+[id^="republish"]+label:before {
+    content: ' ';
+    position: absolute;
+    background: white;
+    top: 2px;
+    left: 2px;
+    z-index: 99999;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), inset 0 -18px 15px -10px rgba(0, 0, 0, 0.05);
+}
+
+
+[id^="republish"]+label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[id^="republish"]:checked+label:before {
+    content: ' ';
+    position: absolute;
+    left: 44px;
+    border-radius: 100px;
+}
+
+
+
+[id^="republish"]:checked+label:after {
+    content: ' ';
+    font-size: 1.5em;
+    position: absolute;
+    background: #63C99C;
+}
+
+#checkbox label {
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+}
