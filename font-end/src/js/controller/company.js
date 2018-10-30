@@ -1,6 +1,6 @@
 import companyList_template from '../views/company-list.html'
-// import companysave_template from '../views/company-save.html'
-// import companyUpdate_template from '../views/company-update.html'
+import companysave_template from '../views/company-save.html'
+import companyUpdate_template from '../views/company-update.html'
 import company_model from '../models/company'
 //引入工具类
 import { bus, handleToastByData} from '../util'
@@ -40,11 +40,6 @@ const bindListEvent = (_page) => {
             id
         })
     })
-    // $('.company-list #update').on('click', function () {
-    //      //自定义属性data-id,jquery语法data('id')===data-id 读取预存的data-[key]值
-    //     let id = $(this).parents('tr').data('id');
-    //     bus.emit('goto', '/companyUpdate', {id})
-    // })
 
     //删除事件，由于有页码分页，所以删除的时候就要知道是那一页进行删除的
     //需要 得知是哪一个进行删除的操作
@@ -88,10 +83,6 @@ const handleRemovecompany = async function (_page) {
             _pageNo -= data.isBack ? 1 : 0
             bus.emit('goto', '/companyList?pageNo=' + _pageNo + '&_=' + data.deleteId + '&search=' + (_page.search || ''))
         }
-        // success: (data) => {
-        //     // 删除成功后，加上传过来的后缀名
-        //     bus.emit('goto', '/companyList?_=' + _data.deleteId)
-        // }
     })
 }
 

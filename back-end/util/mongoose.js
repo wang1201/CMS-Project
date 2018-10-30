@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 //这里是我的mongodb的数据库的地址，去Robo 3T发现是在
 //localhost:27017下，新建一个库叫做quanzhi
-mongoose.connect('mongodb://localhost:27017/quanzhi', {
+mongoose.connect('mongodb://10.9.189.25:27017/quanzhi', {
   useNewUrlParser: true
 });
 

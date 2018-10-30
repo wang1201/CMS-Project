@@ -1,23 +1,21 @@
+.box-header>.box-tools {
+    top: 12px;
+}
 
-.position-list {
-    .box-header>.box-tools {
-        top: 12px;
-    }
-    .position-list__tabel {
-        th,
-        td {
-            text-align: center;
-            vertical-align: middle;
-        }
+#main .box-body table {
+    th, td {
+        text-align: center;
+        vertical-align: middle;
     }
     .option {
+        padding: 18px 8px;
         display: flex;
         justify-content: space-between;
     }
-    
-}
+} 
 
-.companyLogo img{
+
+.companyLogo img {
     width: 140px;
     height: 140px;
 }

@@ -34,6 +34,7 @@ const listOne = async (req, res) => {
 const save = async (req, res, next) => {
     // 接受到req.body的数据，并且存到数据库中
     res.set('content-type', 'application/json; charset=utf8');
+    console.log(req.body);
     let _data = await company_model.save(req.body);
     handleData(_data, res, 'company')
 }

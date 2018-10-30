@@ -4,13 +4,13 @@ const Moment = require('moment') // 时间格式化
 const mongoose = require('../util/mongoose');
 //定义数据字段以及类型
 var companyCollection = new mongoose.Schema({
-    city: String,
+    companyLogo: String,
     companyName: String,
-    companyName: String,
-    salary: String,
-    formatTime:String,
-    createTime: String,
-    companyLogo: String
+    companyLocation: String,
+    companyNature:String,
+    businessScope: String,
+    employeeNumber: String,
+    companyDescription: String
 });
 //将模式编译为模型。model是由schema生成的模型，可以对数据库的操作
 //自动起名为负数
@@ -36,8 +36,10 @@ const listSome = async ({ pageNo = 1, pageSize = 10, search = '' }) => {
     let _query = { // 匹配各个字段值只要有一个字段含有关键字
         $or: [//搜索的时候，只要几个字段哪个匹配到都行 mongoose语法
             { companyName: reg },   
-            { companyName: reg },   
-            { city: reg },   
+            { companyLocation: reg },   
+            { companyNature: reg },   
+            { businessScope: reg },
+            { employeeNumber: reg },
         ]
     }// 查询的约定条件
     // limit // 取几条

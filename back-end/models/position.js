@@ -4,13 +4,17 @@ const Moment = require('moment') // 时间格式化
 const mongoose = require('../util/mongoose');
 //定义数据字段以及类型
 var positionCollection = new mongoose.Schema({
-    city: String,
-    positionName: String,
     companyName: String,
+    positionName: String,
+    city: String,
+    recruitNumbers: String,
+    jobNature: String,
+    education: String,
     salary: String,
+    jobRequirements: String, 
     formatTime:String,
     createTime: String,
-    companyLogo: String
+    
 });
 //将模式编译为模型。model是由schema生成的模型，可以对数据库的操作
 //自动起名为负数
