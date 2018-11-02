@@ -5,7 +5,6 @@ const render = (data = {
     description: '',
     list: []
 }) => {
-    console.log(data);
     let _html = template.render(pageHeader_template, data)
     $('#page-header').html(_html)
 }

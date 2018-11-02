@@ -25,7 +25,6 @@ let init = async () => {
     let isSignIn = await userSigninAuth()
     if ( isSignIn ) {//验证成功
         $('#wrapper').removeClass('hidden')
-            
         router.init()
         user_controller.renderUserInfo()       
     }else {//验证失败-login

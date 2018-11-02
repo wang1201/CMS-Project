@@ -8,7 +8,7 @@ const userSigninAuth = (req, res, next) => {
         let decoded = jwt.verify(req.query.token, _public, { algorithms: 'RS256' })
         // var decoded = jwt.verify(req.query.token, 'i love u'); 
         let _time =  (Date.now() / 1000) - decoded.iat
-        let _expires = 30 
+        let _expires = 1000000;
         if ( _time > _expires ) {
             res.render('user', {
                 code: 403,
