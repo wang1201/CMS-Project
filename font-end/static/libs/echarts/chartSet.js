@@ -124,4 +124,4 @@ setTimeout(() => {
     };
     var myChart2 = echarts.init(waterChart);
     myChart2.setOption(option02);
-  }, 1000)
+  }, 2000)

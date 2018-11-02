@@ -10,7 +10,8 @@ var companyCollection = new mongoose.Schema({
     companyNature:String,
     businessScope: String,
     employeeNumber: String,
-    companyDescription: String
+    companyDescription: String,
+    createTime: String,
 });
 //将模式编译为模型。model是由schema生成的模型，可以对数据库的操作
 //自动起名为负数
