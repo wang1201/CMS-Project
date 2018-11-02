@@ -1,7 +1,6 @@
 
 import '../css/login.scss';
+import loginForm_controller from './controller/login.js';
 
-// import admin_controller from './controllers/admin'
+loginForm_controller.init();
 
-
-// admin_controller.init()

@@ -1,4 +1,5 @@
 
+
 const none = () => {}
 
 // 返回错误代码
@@ -26,6 +27,7 @@ const response = function ({ template, code, data }) {
 
 
 
+
 module.exports = {
-    handleData
+    handleData,
 }

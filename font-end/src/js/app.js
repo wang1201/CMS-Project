@@ -15,12 +15,25 @@ import '../css/app.scss';
 
 //这里的路径是相对于app.js本身的
 const commonTemp_template = require('./views/commonTemp.html');
+// 引入登录权限验证
+import { userSigninAuth } from './util/auth'
+import user_controller from './controller/user'
 
-
+// //验证是否登录了
 $("#wrapper").html(commonTemp_template);
+let init = async () => {
+    let isSignIn = await userSigninAuth()
+    if ( isSignIn ) {//验证成功
+        $('#wrapper').removeClass('hidden')
+            
+        router.init()
+        user_controller.renderUserInfo()       
+    }else {//验证失败-login
+        window.location.href="/login.html"
+    }
+}
 
 
-//启动路由
-router.init();
-//菜单点击跳转事件
-router.navlink();
+init()
+
+

@@ -17,11 +17,10 @@ var logger = require('morgan');
 var { version } = require('./config');
 // 引入js文件
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var positionRouter = require('./routes/position');
-
 var companyRouter = require('./routes/company');
-
+var loginRouter = require('./routes/login');
+var userRouter = require('./routes/user');
 var app = express();//生成一个express实例 app
 
 // view engine setup
@@ -49,13 +48,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 //定义路由规则，也就是/的时候走后面的indexRouter回调函数
 // app.get() 看作app.use的特定请求(get) 的简要写法。 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 // app.use('/api/positionList', positionRouter)改为
 app.use('/api/' + version + '/position', positionRouter)
-
+//company
 app.use('/api/' + version + '/company', companyRouter)
-
-
+//login
+app.use('/api/' + version + '/login', loginRouter)
+//user
+app.use('/api/' + version + '/user', userRouter)
 //配置接口
 // app.use('/api/position/list', (req, res, next) => {
 //   res.json({

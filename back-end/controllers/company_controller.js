@@ -1,9 +1,7 @@
 //list控制器,负责拿到数据并响应数据返回给前台
 // const companyList_temp = require('../views/companyList');
 const company_model = require('../models/company')
-const {
-    handleData
-} = require('../util')
+const {handleData} = require('../util')
 
 // smeRouter不需要引入才渲染，而是可以直接找到
 

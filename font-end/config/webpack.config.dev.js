@@ -4,7 +4,8 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        main: ['./src/js/app']
+        main: ['./src/js/app'],
+        login: ['./src/js/login']
     },
     output: {
         filename: '[name].js',
@@ -14,6 +15,24 @@ module.exports = {
         // __dirname全局变量，存储的是文件所在的文件目录
         //__filename全局变量，存储的是文件名字
         path: PATH.resolve(__dirname, '../dev')
+    },
+    //接着去安装并配置webpack-dev-server进行热更新服务快捷方式，
+    //会自动监听文件内容的改变, 而不会和webpack一样打包到本地，它只存在与缓存区
+    //默认服务器接口为8080/于是需要配置，webpack官方文档
+    devServer: {
+        //来自dev的目录都会做处理，在需要提供静态资源时才需要
+        // host: "10.9.189.25",
+        contentBase: PATH.join(__dirname, "../dev"),
+        compress: true, //gzip 压缩
+        port: 9000,
+        // WebPack中devServer的proxy代理其实是集成了http - proxy - middleware
+        proxy: {
+            //此时请求/api/index  === http://localhost:3000/api/index
+            '/api': {
+                target: 'http://localhost:3000',//目标地址
+                changeOrigin:true//是否中间服务器代理转发
+            }
+        }
     },
     module: {
         rules: [{
@@ -93,6 +112,16 @@ module.exports = {
             // title:'',//标题
             template: './src/index.html', //模版 就是指源文件
             filename: 'index.html', //输出的名字
+            chunks:['main'],//页面需要引入的js的文件名字
+            // minify: {//是否压缩
+            //     removeAttributeQuotes:true,
+            // }
+        }),
+        new HtmlWebpackPlugin({
+            // title:'',//标题
+            template: './src/login.html', //模版 就是指源文件
+            filename: 'login.html', //输出的名字
+            chunks: ['login'], //页面需要引入的js的文件名字
             // minify: {//是否压缩
             //     removeAttributeQuotes:true,
             // }
@@ -106,23 +135,7 @@ module.exports = {
             to: PATH.resolve(__dirname, '../dev/static')
         }, ])
     ],
-    //接着去安装并配置webpack-dev-server进行热更新服务快捷方式，
-    //会自动监听文件内容的改变, 而不会和webpack一样打包到本地，它只存在与缓存区
-    //默认服务器接口为8080/于是需要配置，webpack官方文档
-    devServer: {
-        //来自dev的目录都会做处理，在需要提供静态资源时才需要
-        contentBase: PATH.resolve(__dirname, "../dev"),
-        compress: true, //gzip 压缩
-        port: 9000,
-        // WebPack中devServer的proxy代理其实是集成了http - proxy - middleware
-        proxy: {
-            //此时请求/api/index  === http://localhost:3000/api/index
-            '/api': {
-                target: 'http://localhost:3000',//目标地址
-                changeOrigin:true//是否中间服务器代理转发
-            }
-        }
-    },
+    
 
 
 }
