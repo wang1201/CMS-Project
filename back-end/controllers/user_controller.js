@@ -10,7 +10,6 @@ const isSignIn = (req, res, next) => {
 }
 // 返回用户信息
 const info = async (req, res) => {
-    console.log(req.token)
     let _result = await user_model.getUserInfoById(req.token.userid)
 
     res.render('user', {

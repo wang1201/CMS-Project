@@ -1,7 +1,8 @@
-const Moment = require('moment') // 时间格式化
-
 // 创建的Model模型 （collection）
 const mongoose = require('../util/mongoose');
+const Moment = require('moment') // 时间格式化
+const fs = require('fs-extra') // 时间格式化
+const PATH = require('path') // 时间格式化
 //定义数据字段以及类型
 var companyCollection = new mongoose.Schema({
     companyLogo: String,
@@ -121,7 +122,6 @@ const update = (body) => {
 
 // 删除职位的model
 const remove = async ({ id, pageNo, pageSize }) => {
-    console.log({id, pageNo, pageSize});
     // 删除数据库中的某一条数据
     let _row = await listOne({ id })
     //moongoose语法，删除一跳信息，表.deleteOne({条件})_id为解构出来的id的数据
@@ -135,12 +135,12 @@ const remove = async ({ id, pageNo, pageSize }) => {
         //大于等于，为true; 证明该页没有数据了，就-1
         //如果没有大于等于，则证明该页就还有数据  就不用改变当前页码
         results.isBack = (pageNo - 1) * pageSize >= _all_items.length;
-        console.log(results.isBack, ((pageNo - 1) * pageSize), _all_items.length);
-        // 有图片就删图片
-        if ( _row.companyLogo && _row.companyLogo !== default_logo ) {
+         // 有图片就删图片
+         if ( _row.companyLogo && (_row.companyLogo !== default_logo) ) {
             fs.removeSync(PATH.resolve(__dirname, '../public'+_row.companyLogo))
         }  
         return results
+
     }).catch((err) => {
         // fs.appendFileSync('./logs/logs.txt', Moment().format("YYYY-MM-DD, hh:mm") + '' +JSON.stringify(err))
         return false

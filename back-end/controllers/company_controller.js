@@ -18,7 +18,6 @@ const listAll = async (req, res) => {
 //根据传入的参数，参数可能为空也就是默认的，也可能为页码 
 const listSome = async (req, res) => {
     // res.set('content-type', 'application/json; charset=utf8')
-    console.log(req.query);
     let _data = await company_model.listSome(req.query)
     handleData(_data, res, 'company')
 }
@@ -32,7 +31,7 @@ const listOne = async (req, res) => {
 const save = async (req, res, next) => {
     // 接受到req.body的数据，并且存到数据库中
     res.set('content-type', 'application/json; charset=utf8');
-    console.log(req.body);
+    
     let _data = await company_model.save(req.body);
     handleData(_data, res, 'company')
 }

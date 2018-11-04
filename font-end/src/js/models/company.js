@@ -37,11 +37,13 @@ const listOne = (data) => {
 //修改信息后提交
 // 引入jquery.form.js插件 ajaxSubmit自动获取表单的值并提交
 const update = (data) => {
+    
     return new Promise((resolve) => {
         $('.company-update #update-form').ajaxSubmit({
             url: '/api/v1/company/update',
             type: 'POST',
             success: (data) => {
+                console.log(data);
                 resolve(data)
             }
         })

@@ -78,7 +78,6 @@ const handleRemovecompany = async function (_page) {
         success: (data) => {
             // 删除成功后，i依然需要将pageNo带上，否则，删除后，重新渲染的时候会回到默认的第一页
             //因此接口需要告诉我当前页的数据条数
-            console.log(data);
             let _pageNo = _page.pageNo
             _pageNo -= data.isBack ? 1 : 0
             bus.emit('goto', '/companyList?pageNo=' + _pageNo + '&_=' + data.deleteId + '&search=' + (_page.search || ''))
@@ -128,7 +127,6 @@ const handleSaveSubmit = async function (e) {
 
 // company-update页面的事件绑定
 const update = async (req, res) => {
-    console.log(req);
     let {
         id
     } = req.body // 要更新的数据的id
@@ -155,7 +153,6 @@ const bindUpdateEvent = () => {
 const handleUpdateSubmit = async function (e) {
     e.preventDefault();
     let _results = await company_model.update();
-    console.log(_results);
     handleToastByData(_results)
 }
 export default {

@@ -1,0 +1,48 @@
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#origin {
+    width: 250px;
+    display: inline-block;
+    margin-left: 20px
+}
+
+#terminus {
+    width: 250px;
+    display: inline-block;
+    margin: 0 20px
+}
+
+#search {
+    // float: right;line-height: 34px;margin-right: 20px
+}
+
+#panel {
+    position: fixed;
+    background-color: white;
+    max-height: 62%;
+    overflow-y: auto;
+    top: 164px;
+    right: 10px;
+    width: 300px;
+    z-index: 999;
+}
+
+#map-container {
+    height: 600px;
+}
+
+#info {
+    margin: 0 0 0 20px;
+}
+
+.auto-item {
+    padding: 4px 12px;
+}
+.amap-lib-transfer .plan dd h4{
+    font-size: 15px;
+    font-weight: 600;
+}

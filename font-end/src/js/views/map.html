@@ -1,27 +1,16 @@
-
-
-
 <div class="map">
     <div class="box">
-        <div class="box-header with-border">    
-        
-            <div id="panel" style=" position: fixed;background-color: white;max-height: 60%;overflow-y: auto;top: 200px;right: 10px;width: 280px;z-index: 999;"></div>
-          </div>
-          <div style="margin-bottom: 30px">
-           <input id= "origin" class="form-control" style="width: 250px;display:inline-block ; margin-left: 20px " type="text" placeholder="请输入起点">
-          <input id= "terminus"  class="form-control"style="width: 250px;display:inline-block; margin:0 20px "type="text" placeholder="请输入终点">
-          <div id="search" class="btn btn btn-default">搜索</div>
-          <div class="info" style="float: right;line-height: 34px;margin-right: 20px">
-              <p id='info'></p>
+        <div class="box-header with-border" id="header">
+            <input id="origin" class="form-control" type="text" placeholder="请输入起点">
+            <input id="terminus" class="form-control" type="text" placeholder="请输入终点">
+            <div id="search" class="btn btn-default">搜索</div>
+            <div class="info">
+                <p id="info"></p>
             </div>
-   
+            <div id="panel"></div>
         </div>
-          
-         
-        
-        <div class="box-body" id="map-container" style="height: 600px;">
-        </div>
+        <div class="box-body" id="map-container"></div>
         <div class="box-footer with-border" id="map-panel">
-          </div>
-      </div>
+        </div>
+    </div>
 </div>
