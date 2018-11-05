@@ -42,6 +42,12 @@ const listSome = async ({ pageNo = 1, pageSize = 10, search = '' }) => {
             { companyName: reg },   
             { positionName: reg },   
             { city: reg },   
+            { recruitNumbers: reg },   
+            { jobNature: reg },   
+            { education: reg },   
+            { salary: reg },   
+            { jobRequirements: reg },   
+            { formatTime: reg },
         ]
     }// 查询的约定条件
     // limit // 取几条

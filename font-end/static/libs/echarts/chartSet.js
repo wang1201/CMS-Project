@@ -17,6 +17,7 @@ setTimeout(() => {
         textStyle: {
           color: '#000',
           fontSize: '14',
+          border:'1px solid red'
         }
       },
 
